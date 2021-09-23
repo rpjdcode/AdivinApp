@@ -24,11 +24,6 @@ public class AdivinApp extends Application{
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		
-		// Alertas
-		ErrorAlert = new Alert(AlertType.ERROR);
-		ErrorAlert.setTitle("AdivinApp - Error");
-		ErrorAlert.setHeaderText(STYLESHEET_CASPIAN);
-		ErrorAlert.setContentText(STYLESHEET_CASPIAN);
 		
 		// Label
 		etiqueta = new Label("Introduce un número del 1 al 100");
