@@ -24,7 +24,7 @@ public class AdivinApp extends Application{
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		// Generamos el número aleatorio
-		aleatorio = (int) (Math.random()*100 + 1); // Rango de 1-100
+		aleatorio = genAleatorio(); // Rango de 1-100
 		// Label
 		etiqueta = new Label("Introduce un número del 1 al 100");
 		
@@ -52,8 +52,10 @@ public class AdivinApp extends Application{
 		primaryStage.setTitle("AdivinApp");
 		primaryStage.setScene(escena);
 		primaryStage.show();
-		
-		
+	}
+	
+	private int genAleatorio() {
+		return (int) (Math.random()*100 + 1);
 	}
 	
 	private void onAdivinarAction(ActionEvent e) {
@@ -66,7 +68,7 @@ public class AdivinApp extends Application{
 				alerta.setHeaderText("¡Has ganado!");
 				alerta.setContentText("Sólo has necesitado " + intentos + " intentos.\nVuelve a jugar y hazlo mejor.");
 				alerta.showAndWait();
-				aleatorio = (int) (Math.random()*100 + 1); // Generamos nuevo nº aleatorio
+				aleatorio = genAleatorio(); // Generamos nuevo nº aleatorio
 				intentos=0;
 			} else {
 				intentos++;
@@ -83,10 +85,6 @@ public class AdivinApp extends Application{
 			alerta.setContentText("El número introducido no es válido.");
 			alerta.showAndWait();
 		}
-		
-		// En caso de acertar, devolver Alert de Info
-		
-		// En caso de no acertar, devolver Alert de tipo Warning
 	}
 	
 	public static void main(String[] args) {
